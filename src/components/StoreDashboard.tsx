@@ -69,8 +69,8 @@ export default function StoreDashboard() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
     return !!localStorage.getItem('JWT_TOKEN') || !!localStorage.getItem('IS_LOGGED_IN_MOCK');
   });
-  const [username, setUsername] = useState('armando.banegas@inverbanhn.com');
-  const [password, setPassword] = useState('SuperAdmin2026!');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState('');
   const [isLoadingAuth, setIsLoadingAuth] = useState(false);
@@ -760,11 +760,7 @@ export default function StoreDashboard() {
               </div>
             </div>
 
-            <div className="bg-slate-950/60 rounded-xl p-3 border border-slate-900 text-[10px] text-slate-400 space-y-1">
-              <span className="font-bold text-magenta uppercase block">Credenciales Seed:</span>
-              <p>User: <span className="font-mono text-slate-300">armando.banegas@inverbanhn.com</span></p>
-              <p>Pass: <span className="font-mono text-slate-300">SuperAdmin2026!</span></p>
-            </div>
+
 
             <button
               type="submit"
