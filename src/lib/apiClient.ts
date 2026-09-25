@@ -1,4 +1,12 @@
-const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || '/api';
+const getBaseUrl = (): string => {
+  const envUrl = (import.meta as any).env?.VITE_API_BASE_URL 
+    || (import.meta as any).env?.VITE_INVERBAN_API_URL 
+    || 'http://localhost:5002/api';
+
+  return envUrl.endsWith('/api') ? envUrl : `${envUrl.replace(/\/$/, '')}/api`;
+};
+
+const API_BASE_URL = getBaseUrl();
 
 export interface FetchOptions extends RequestInit {
   params?: Record<string, string>;
